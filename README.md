@@ -1,6 +1,29 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### commitlint keywords:
+
+```[
+  'build',
+  'chore',
+  'ci',
+  'docs',
+  'feat',
+  'fix',
+  'perf',
+  'refactor',
+  'revert',
+  'style',
+  'test'
+];
+
+    example:
+    echo ": some message" # fails
+    echo "fix: some message" # passes
+```
+
+### Open _Commit_ in webstorm shortcut
+
+` Commend + K`
 
 ## Available Scripts
 
