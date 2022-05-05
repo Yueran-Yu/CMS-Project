@@ -17,9 +17,17 @@
 ```
 
 1. Open _Commit_ in webstorm shortcut` Commend + K`
-2. Local node server -> `json-sever`
+2. Local node server -> **json-sever**
+
    - easy to configure `json-server` can start a `REST API Server` within 30 seconds
    - easy to customize
    - simulate the real CRUD
+
 3. ### REST API
-   ` GET /tickets (list) GET /tickets/12 (details) POST /tickets (add) PUT /tickets/12 (replace) PATCH /tickets/12 (modify) DELETE /tickets/12 (delete) `
+   - `GET /tickets (list)`
+   - `GET /tickets/12 (details)`
+   - `POST /tickets (add)`
+   - `PUT /tickets/12 (replace)`
+   - `PATCH /tickets/12 (modify)`
+   - `DELETE /tickets/12 (delete)`
+4. Start json-server: `json-server --wwatch db.json`
