@@ -31,3 +31,7 @@
    - `PATCH /tickets/12 (modify)`
    - `DELETE /tickets/12 (delete)`
 4. Start json-server: `json-server --wwatch db.json`
+5. decodeURIComponent vs encodeURI
+6. `.env` VS. `.env.development`
+   - when we run `yarn start (npm start)` webpack will read the variable in the `.env.developement`, when
+     run `yarn build (npm run build)` webpack will read `.env`
