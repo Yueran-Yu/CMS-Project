@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
-export const SearchPanel = ({ param, setParam }) => {
-  const [users, setUsers] = useState([])
+export const SearchPanel = ({ users, param, setParam }) => {
   const handleOnChange = (e) => {
     const { name, value } = e.target
     setParam({

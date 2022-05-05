@@ -2,51 +2,51 @@
   "users": [
     {
       "id": 1,
-      "name": "张三"
+      "name": "Sam Chen"
     },
     {
       "id": 2,
-      "name": "李四"
+      "name": "Jack Ma"
     },
     {
       "id": 3,
-      "name": "王五"
+      "name": "Mask Yang"
     },
     {
       "id": 4,
-      "name": "赵六"
+      "name": "Tom Zhao"
     }
   ],
   "projects": [
     {
       "id": 1,
-      "name": "骑手管理",
+      "name": "Rider Management",
       "personId": 1,
-      "organization": "外卖组"
+      "organization": "Takeout Group"
     },
     {
       "id": 2,
-      "name": "团购APP",
+      "name": "Group Buying APP",
       "personId": 2,
-      "organization": "团购组"
+      "organization": "Group Buy"
     },
     {
       "id": 3,
-      "name": "物料管理系统",
+      "name": "Material Management System",
       "personId": 2,
-      "organization": "物料组"
+      "organization": "Material Group"
     },
     {
       "id": 4,
-      "name": "总部管理系统",
+      "name": "Headquarters Management System",
       "personId": 3,
-      "organization": "总部组"
+      "organization": "Headquarters Group"
     },
     {
       "id": 5,
-      "name": "送餐路线规划系统",
+      "name": "Delivery Route Planning System",
       "personId": 4,
-      "organization": "送餐组"
+      "organization": "Delivery Group"
     }
   ]
 }
