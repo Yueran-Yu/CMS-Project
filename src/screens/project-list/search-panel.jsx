@@ -13,16 +13,15 @@ export const SearchPanel = ({ users, param, setParam }) => {
     <form action="">
       <div>
         <input type="text"
-               name="personId"
+               name="name"
                value={param.name}
                onChange={e => handleOnChange(e)} />
-        <select name="name"
+        <select name="personId"
                 value={param.personId}
-                id=""
                 onChange={e => handleOnChange(e)}>
           <option value=" ">Manager</option>
           {
-            users.map(user => <option value={user.id}>{user.name}</option>)
+            users.map(user => <option key={user.id} value={user.id}>{user.name}</option>)
           }
         </select>
       </div>
