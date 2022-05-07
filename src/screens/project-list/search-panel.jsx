@@ -14,7 +14,7 @@ export const SearchPanel = ({ users, param, setParam }) => {
       <div>
         <input type="text"
                name="name"
-               value={param.name}
+                value={param.name}
                onChange={e => handleOnChange(e)} />
         <select name="personId"
                 value={param.personId}

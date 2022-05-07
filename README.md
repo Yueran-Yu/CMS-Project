@@ -36,3 +36,4 @@
    - when we run `yarn start (npm start)` webpack will read the variable in the `.env.developement`, when
      run `yarn build (npm run build)` webpack will read `.env`
 7. **Optional Chaining Operator**: `object?.name`
+8. `useDebounce()` prevent multiple rendering
