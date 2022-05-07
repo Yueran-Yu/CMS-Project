@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value) => (value === 0 ? false : !value);
+export const isFalsy = (value: any) => (value === 0 ? false : !value);
 
 // don't mess up original data
-export const CleanUpObject = (object) => {
+// this involves generics
+export const CleanUpObject = (object: object) => {
   const result = { ...object };
   Object.keys(result).forEach((key) => {
+    // @ts-ignore
     const value = result[key];
     // "!value" means undefined/null/empty string
     if (isFalsy(value)) {
+      // @ts-ignore
       delete result[key];
     }
   });
   return result;
 };
 
-export const useMount = (callback) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
   }, []); // eslint-disable-line
 };
 
 // set a new clock every time when the value changed
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: any, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     let timeout = setTimeout(() => setDebouncedValue(value), delay);
