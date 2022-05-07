@@ -5,13 +5,11 @@ const AuthContext = createContext(undefined);
 AuthContext.displayName = "AuthContext";
 const AuthProvider = () => {
   const [user, setUser] = useState<UserProps | null>(null);
-
-  const login = (form: LoginRegisterProps) =>
-    auth.login(form).then((user) => setUser(user));
+  // point free style
+  const login = (form: LoginRegisterProps) => auth.login(form).then(setUser);
   const register = (form: LoginRegisterProps) =>
-    auth.register(form).then((user) => setUser(user));
+    auth.register(form).then(setUser);
   const logout = () => auth.logout().then(() => setUser(null));
-  return <div></div>;
 };
 
 export default AuthProvider;
