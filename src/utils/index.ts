@@ -25,7 +25,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // set a new clock every time when the value changed
-export const useDebounce = (value: unknown, delay?: number) => {
+export const useDebounce = <T>(value: T, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     let timeout = setTimeout(() => setDebouncedValue(value), delay);
