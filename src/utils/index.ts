@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value: any) => (value === 0 ? false : !value);
+export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 
 // don't mess up original data
 // this involves generics
@@ -25,7 +25,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // set a new clock every time when the value changed
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = (value: unknown, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     let timeout = setTimeout(() => setDebouncedValue(value), delay);
