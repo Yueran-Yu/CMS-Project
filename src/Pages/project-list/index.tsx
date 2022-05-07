@@ -4,9 +4,9 @@ import { List } from "./list";
 import qs from "qs";
 import { useMount, CleanUpObject, useDebounce } from "../../utils";
 
-const apiUrl = process.env.REACT_APP_API_URL;
+export const apiUrl = process.env.REACT_APP_API_URL;
 
-export const ProjectListScreen = () => {
+export const ProjectListPage = () => {
   const [param, setParam] = useState({ name: "", personId: "" });
   const [users, setUsers] = useState([]);
   const [list, setList] = useState([]);

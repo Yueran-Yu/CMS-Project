@@ -30,3 +30,8 @@ interface ListProps {
   list: Project[];
   users: User[];
 }
+
+interface LoginProps {
+  username: string;
+  password: string;
+}
