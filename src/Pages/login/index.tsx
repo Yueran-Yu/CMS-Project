@@ -2,18 +2,7 @@ import React, { FormEvent } from "react";
 import { apiUrl } from "../project-list";
 
 const LoginPage = () => {
-  const login = (param: LoginProps) => {
-    fetch(`${apiUrl}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(param),
-    }).then(async (response) => {
-      if (response.ok) {
-      }
-    });
-  };
+  const login = (param: LoginRegisterProps) => {};
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

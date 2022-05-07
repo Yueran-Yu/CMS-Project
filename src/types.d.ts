@@ -5,6 +5,7 @@ interface UserProps {
   title: string;
   personId: string;
   organization: string;
+  token: string;
 }
 
 interface ParamProps {
@@ -31,7 +32,7 @@ interface ListProps {
   users: User[];
 }
 
-interface LoginProps {
+interface LoginRegisterProps {
   username: string;
   password: string;
 }
