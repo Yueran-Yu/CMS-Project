@@ -14,6 +14,7 @@
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
     "@types/styled-components": "^5.1.25",
+    "jira-dev-tool": "^1.7.61",
     "json-server": "^0.17.0",
     "qs": "^6.10.3",
     "react": "^17.0.2",
@@ -66,5 +67,8 @@
   },
   "lint-staged": {
     "*.{js,css,md,ts,tsx}": "prettier --write"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
