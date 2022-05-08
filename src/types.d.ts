@@ -36,3 +36,10 @@ interface LoginRegisterProps {
   username: string;
   password: string;
 }
+
+interface AuthContextProps {
+  user: UserProps | null;
+  login: (form: LoginRegisterProps) => Promise<void>;
+  register: (form: LoginRegisterProps) => Promise<void>;
+  logout: () => Promise<void>;
+}

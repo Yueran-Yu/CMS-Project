@@ -1,15 +1,14 @@
 import React, { FormEvent } from "react";
-import { apiUrl } from "../project-list";
+import { useAuth } from "../context/auth-context";
 
-const LoginPage = () => {
-  const login = (param: LoginRegisterProps) => {};
+const RegisterPage = () => {
+  const { register, user } = useAuth();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const username = (e.currentTarget.elements[0] as HTMLInputElement).value;
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value;
-
-    login({ username, password });
+    register({ username, password });
   };
 
   return (
@@ -22,9 +21,9 @@ const LoginPage = () => {
         <label htmlFor="password">Password</label>
         <input name="password" type="password" id="password" />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">Register</button>
     </form>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
