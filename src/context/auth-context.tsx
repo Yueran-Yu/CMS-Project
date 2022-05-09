@@ -6,6 +6,18 @@ import React, {
   useState,
 } from "react";
 import * as auth from "auth-provider";
+import { http } from "../utils/http";
+import { useMount } from "../utils";
+
+const bootStrapUser = async () => {
+  let user = null;
+  const token = auth.getToken();
+  if (token) {
+    const data = await http("me", { token });
+    user = data.user;
+  }
+  return user;
+};
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
@@ -18,12 +30,15 @@ export const AuthProvider: FC<ReactNode> = ({ children }) => {
     auth.register(form).then(setUser);
   const logout = () => auth.logout().then(() => setUser(null));
 
+  useMount(() => bootStrapUser().then(setUser));
+
   return (
     <AuthContext.Provider value={{ user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

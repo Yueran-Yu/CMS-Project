@@ -1,10 +1,11 @@
 import { apiUrl } from "../pages/project-list";
 import qs from "qs";
 import * as auth from "auth-provider";
+import { useAuth } from "../context/auth-context";
 
 export const http = async (
   endPoint: string,
-  { data, token, headers, ...customConfig }: Config
+  { data, token, headers, ...customConfig }: Config = {}
 ) => {
   const config = {
     method: "GET",
@@ -40,4 +41,11 @@ export const http = async (
         return Promise.reject(data);
       }
     });
+};
+
+export const useHttp = () => {
+  const { user } = useAuth();
+  //TODO explain TS operators
+  return (...[endpoint, config]: Parameters<typeof http>) =>
+    http(endpoint, { ...config, token: user?.token });
 };
