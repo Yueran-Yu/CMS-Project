@@ -1,6 +1,6 @@
 // In the real development environment, if we se services like Firebase library, this file is unnecessary
 
-import { apiUrl } from "./Pages/project-list";
+import { apiUrl } from "./pages/project-list";
 
 const localStorageKey = "__auth_provider_token__";
 export const getToken = () => window.localStorage.getItem(localStorageKey);
@@ -18,6 +18,7 @@ export const login = async (data: LoginRegisterProps) => {
     },
     body: JSON.stringify(data),
   });
+
   if (response.ok) {
     return handleUserResponse(await response.json());
   } else {
@@ -34,6 +35,7 @@ export const register = async (data: LoginRegisterProps) => {
     },
     body: JSON.stringify(data),
   });
+
   if (response.ok) {
     return handleUserResponse(await response.json());
   } else {

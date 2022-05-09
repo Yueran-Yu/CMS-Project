@@ -43,3 +43,8 @@ interface AuthContextProps {
   register: (form: LoginRegisterProps) => Promise<void>;
   logout: () => Promise<void>;
 }
+
+interface Config extends RequestInit {
+  data?: object;
+  token?: string;
+}

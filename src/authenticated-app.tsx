@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectListPage } from "./Pages/project-list";
+import { ProjectListPage } from "./pages/project-list";
 import { useAuth } from "./context/auth-context";
 
 export const AuthenticatedApp = () => {

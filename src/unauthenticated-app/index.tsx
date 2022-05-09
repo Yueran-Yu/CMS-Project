@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import RegisterPage from "./register";
-import LoginPage from "./login";
+import RegisterPage from "./RegisterPage";
+import LoginPage from "./LoginPage";
 
 export const UnauthenticatedApp = () => {
-  const [isRegisterPage, setIsRegisterPage] = useState(false);
+  const [registerPage, setRegisterPage] = useState(false);
   return (
     <div>
-      {isRegisterPage ? <RegisterPage /> : <LoginPage />}
-      <button onClick={() => setIsRegisterPage(!isRegisterPage)}>
-        {isRegisterPage ? "Toggle Login" : "Toggle Register"}
+      {registerPage ? <RegisterPage /> : <LoginPage />}
+      <button onClick={() => setRegisterPage(!registerPage)}>
+        {registerPage ? "Go To Login" : "Go To Register"}
       </button>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { FormEvent } from "react";
 import { useAuth } from "../context/auth-context";
 
 const RegisterPage = () => {
-  const { register, user } = useAuth();
+  const { register } = useAuth();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

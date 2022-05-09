@@ -15,6 +15,7 @@ export const ProjectListPage = () => {
   useEffect(() => {
     // fetch return a Promise, then use the async function inside the 'then'
     fetch(
+      // "projects" is end point
       `${apiUrl}/projects?${qs.stringify(CleanUpObject(debouncedParam))}`
     ).then(async (response) => {
       if (response.ok) {

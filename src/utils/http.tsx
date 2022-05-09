@@ -1,0 +1,43 @@
+import { apiUrl } from "../pages/project-list";
+import qs from "qs";
+import * as auth from "auth-provider";
+
+export const http = async (
+  endPoint: string,
+  { data, token, headers, ...customConfig }: Config
+) => {
+  const config = {
+    method: "GET",
+    headers: {
+      Authorization: token ? `Bearer ${token}` : "",
+      "Content-Type": data ? "application/json" : "",
+    },
+    // this customConfig, will overwrite the default property=> {method: "GET"} if it has been passed
+    ...customConfig,
+  };
+
+  if (config.method.toUpperCase() === "GET") {
+    endPoint += `?${qs.stringify(data)}`;
+  } else {
+    config.body = JSON.stringify(data || {});
+  }
+
+  // axios performs better than fetch, since it will throw exception error automatically when the status code is not 2xx
+  return window
+    .fetch(`${apiUrl}/${endPoint}`, config)
+    .then(async (response) => {
+      if (response.status === 401) {
+        await auth.logout();
+        window.location.reload();
+        return Promise.reject({ message: "Please Login Again" });
+      }
+
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        //equals manually throw an error message
+        return Promise.reject(data);
+      }
+    });
+};

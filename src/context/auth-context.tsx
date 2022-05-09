@@ -29,6 +29,5 @@ export const useAuth = () => {
   if (!context) {
     throw new Error("userAuth must be used in the AuthProvider");
   }
-
   return context;
 };
