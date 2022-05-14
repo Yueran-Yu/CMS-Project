@@ -46,7 +46,11 @@ export const http = async (
 
 export const useHttp = () => {
   const { user } = useAuth();
-  //TODO explain TS operators
+  // Parameters<typeof http>  is a Utility Type
   return (...[endpoint, config]: Parameters<typeof http>) =>
     http(endpoint, { ...config, token: user?.token });
 };
+
+// type alias, interface can't replace this type style
+// interface can't replace Utility Type
+type FavNum = string | number;

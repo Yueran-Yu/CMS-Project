@@ -37,3 +37,5 @@
      run `yarn build (npm run build)` webpack will read `.env`
 7. **Optional Chaining Operator**: `object?.name`
 8. `useDebounce()` prevent multiple rendering
+9. Learned `Ant Design`
+10. Learned [craco](https://github.com/gsoft-inc/craco)
