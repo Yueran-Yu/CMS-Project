@@ -35,6 +35,7 @@ export const http = async (
 
       const data = await response.json();
       if (response.ok) {
+        //  这里的data 获取的是啥？
         return data;
       } else {
         //equals manually throw an error message

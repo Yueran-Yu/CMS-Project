@@ -1,5 +1,4 @@
 // In the real development environment, if we se services like Firebase library, this file is unnecessary
-
 import { apiUrl } from "./pages/project-list";
 
 const localStorageKey = "__auth_provider_token__";

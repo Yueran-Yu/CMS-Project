@@ -14,6 +14,7 @@ const bootStrapUser = async () => {
   const token = auth.getToken();
   if (token) {
     const data = await http("me", { token });
+    //  不懂  data 里为啥 有 user  属性的，不明白
     user = data.user;
   }
   return user;
