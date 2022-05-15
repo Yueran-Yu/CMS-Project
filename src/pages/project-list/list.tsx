@@ -38,6 +38,7 @@ export const List: FC<ListProps> = ({ projects, users }) => {
           },
         },
       ]}
+      rowKey="id"
       dataSource={projects}
     />
   );

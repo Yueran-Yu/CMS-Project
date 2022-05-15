@@ -22,11 +22,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react"
   },
-  "file": [
-    "src/types.d.ts",
-    "src/globals.d.ts"
-  ],
   "include": [
-    "src"
+    "src",
+    "src/types.d.ts",
+    "src/img-module.d.ts"
   ]
 }
