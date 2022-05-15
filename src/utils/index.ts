@@ -17,10 +17,11 @@ export const CleanUpObject = (object: { [key: string]: unknown }) => {
   return result;
 };
 
+// TODO  依赖项里加上callback会造成无限循环，这个和usecallback以及useMemo有关
 export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
-  }, []); // eslint-disable-line
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 // set a new clock every time when the value changed

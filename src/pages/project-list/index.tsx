@@ -17,7 +17,7 @@ export const ProjectListPage = () => {
     client("projects", { data: CleanUpObject(debouncedParam) }).then(
       setProjects
     );
-  }, [debouncedParam]);
+  }, [debouncedParam]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useMount(() => {
     client("users").then(setUsers);

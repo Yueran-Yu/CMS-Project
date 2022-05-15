@@ -18,11 +18,11 @@ export const UnauthenticatedApp = () => {
         <Title>{registerPage ? "请注册" : "请登录"}</Title>
         {registerPage ? <RegisterPage /> : <LoginPage />}
         <Divider />
-        <a onClick={() => setRegisterPage(!registerPage)}>
+        <Button type={"link"} onClick={() => setRegisterPage(!registerPage)}>
           {registerPage
             ? "已经有账号了？ 请直接登录"
             : "没有账号？ 请注册新账号"}
-        </a>
+        </Button>
       </ShadowCard>
     </Container>
   );
