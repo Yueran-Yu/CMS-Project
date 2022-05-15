@@ -22,7 +22,8 @@
     "jsx": "react-jsx"
   },
   "file": [
-    "src/types.d.ts"
+    "src/types.d.ts",
+    "src/globals.d.ts"
   ],
   "include": [
     "src"

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app/App";
+import "./App.css";
 import { loadDevTools } from "jira-dev-tool";
 // antd  must imported behind jira-dev-tool
 import "antd/dist/antd.less";
