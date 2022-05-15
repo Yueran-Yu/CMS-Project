@@ -1,29 +1,34 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import { useAuth } from "../context/auth-context";
+import { Button, Form, Input } from "antd";
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
   const { register } = useAuth();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const username = (e.currentTarget.elements[0] as HTMLInputElement).value;
-    const password = (e.currentTarget.elements[1] as HTMLInputElement).value;
-    register({ username, password });
+  const handleSubmit = (values: LoginRegisterProps) => {
+    register(values);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">User Name</label>
-        <input name="username" type="text" id="username" />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input name="password" type="password" id="password" />
-      </div>
-      <button type="submit">Register</button>
-    </form>
+    <Form onFinish={handleSubmit}>
+      <Form.Item
+        name={"username"}
+        rules={[{ required: true, message: "Please enter user name." }]}
+      >
+        <Input placeholder={"User Name"} type="text" id={"username"} />
+      </Form.Item>
+      <Form.Item
+        name={"password"}
+        rules={[{ required: true, message: "Please enter password." }]}
+      >
+        <Input placeholder={"Password"} type="text" id={"password"} />
+      </Form.Item>
+      <Form.Item>
+        {/*type means the style of antd*/}
+        <Button htmlType={"submit"} type={"primary"}>
+          Register
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
-
-export default RegisterPage;

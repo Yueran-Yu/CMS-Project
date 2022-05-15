@@ -8,7 +8,6 @@ const App = () => {
   const { user } = useAuth();
   return (
     <AppWrapper>
-      <h1>Management System</h1>
       {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </AppWrapper>
   );
