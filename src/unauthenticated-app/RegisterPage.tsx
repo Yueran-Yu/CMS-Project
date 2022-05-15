@@ -14,20 +14,20 @@ export const RegisterPage = () => {
     <Form onFinish={handleSubmit}>
       <Form.Item
         name={"username"}
-        rules={[{ required: true, message: "Please enter user name." }]}
+        rules={[{ required: true, message: "请输入用户名." }]}
       >
-        <Input placeholder={"User Name"} type="text" id={"username"} />
+        <Input placeholder={"用户名"} type="text" id={"username"} />
       </Form.Item>
       <Form.Item
         name={"password"}
-        rules={[{ required: true, message: "Please enter password." }]}
+        rules={[{ required: true, message: "请输入密码." }]}
       >
-        <Input placeholder={"Password"} type="text" id={"password"} />
+        <Input placeholder={"密码"} type="text" id={"password"} />
       </Form.Item>
       <Form.Item>
         {/*type means the style of antd*/}
         <LongButton htmlType={"submit"} type={"primary"}>
-          Register
+          注册
         </LongButton>
       </Form.Item>
     </Form>

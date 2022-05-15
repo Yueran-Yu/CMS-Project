@@ -24,6 +24,6 @@ export const List: FC<ListProps> = ({ list, users }) => {
         },
       ]}
       dataSource={list}
-    ></Table>
+    />
   );
 };
