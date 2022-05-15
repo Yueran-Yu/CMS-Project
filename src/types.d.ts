@@ -25,10 +25,11 @@ interface Project {
   personId: string;
   pin: boolean;
   organization: string;
+  created: number;
 }
 
 interface ListProps {
-  list: Project[];
+  projects: Project[];
   users: User[];
 }
 

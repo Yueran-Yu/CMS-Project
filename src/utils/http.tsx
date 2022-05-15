@@ -53,4 +53,4 @@ export const useHttp = () => {
 
 // type alias, interface can't replace this type style
 // interface can't replace Utility Type
-type FavNum = string | number;
+// type FavNum = string | number;

@@ -20,6 +20,7 @@
     "@types/styled-components": "^5.1.25",
     "antd": "^4.20.4",
     "craco-less": "^2.0.0",
+    "dayjs": "^1.11.2",
     "jira-dev-tool": "^1.7.61",
     "json-server": "^0.17.0",
     "qs": "^6.10.3",
