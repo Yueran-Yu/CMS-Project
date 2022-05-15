@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../context/auth-context";
-import { Button, Form, Input } from "antd";
+import { Form, Input } from "antd";
+import { LongButton } from "unauthenticated-app";
 
 export const RegisterPage = () => {
   const { register } = useAuth();
@@ -25,9 +26,9 @@ export const RegisterPage = () => {
       </Form.Item>
       <Form.Item>
         {/*type means the style of antd*/}
-        <Button htmlType={"submit"} type={"primary"}>
+        <LongButton htmlType={"submit"} type={"primary"}>
           Register
-        </Button>
+        </LongButton>
       </Form.Item>
     </Form>
   );
