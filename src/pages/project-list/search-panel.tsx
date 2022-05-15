@@ -1,4 +1,4 @@
-import { Input, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import React, { ChangeEvent, FC } from "react";
 
 export const SearchPanel: FC<SearchPanelProps> = ({
@@ -16,14 +16,17 @@ export const SearchPanel: FC<SearchPanelProps> = ({
     });
   };
   return (
-    <form action="">
-      <div>
+    <Form layout={"inline"} css={{ marginBottom: "2rem" }}>
+      <Form.Item>
         <Input
+          placeholder={"项目名"}
           type="text"
           name="name"
           value={param.name}
           onChange={(e) => handleOnChange(e)}
         />
+      </Form.Item>
+      <Form.Item>
         <Select
           value={param.personId}
           onChange={(value) => setParam({ ...param, personId: value })}
@@ -35,7 +38,7 @@ export const SearchPanel: FC<SearchPanelProps> = ({
             </Select.Option>
           ))}
         </Select>
-      </div>
-    </form>
+      </Form.Item>
+    </Form>
   );
 };
