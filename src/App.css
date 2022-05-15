@@ -1,0 +1,12 @@
+html {
+  /* rem  vs. em */
+  /* em: the unit is relative to the font size of its parent element */
+  /* rem: the unit is only relative to the root font size of the HTML document, the r in the rem stands for root. */
+  /* the default font size of the browser is 16px;*/
+  /* 16 * 62.5% = 10px */
+  font-size: 62.5%;
+}
+
+html body #root .App {
+  min-height: 100vh;
+}

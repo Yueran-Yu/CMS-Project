@@ -1,3 +1,4 @@
+import { Input, Select } from "antd";
 import React, { ChangeEvent, FC } from "react";
 
 export const SearchPanel: FC<SearchPanelProps> = ({
@@ -17,24 +18,23 @@ export const SearchPanel: FC<SearchPanelProps> = ({
   return (
     <form action="">
       <div>
-        <input
+        <Input
           type="text"
           name="name"
           value={param.name}
           onChange={(e) => handleOnChange(e)}
         />
-        <select
-          name="personId"
+        <Select
           value={param.personId}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(value) => setParam({ ...param, personId: value })}
         >
-          <option value=" ">Manager</option>
+          <Select.Option value={""}>负责人</Select.Option>
           {users.map((user) => (
-            <option key={user.id} value={user.id}>
+            <Select.Option key={user.id} value={user.id}>
               {user.name}
-            </option>
+            </Select.Option>
           ))}
-        </select>
+        </Select>
       </div>
     </form>
   );

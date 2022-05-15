@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@commitlint/cli": "^16.2.1",
+    "@craco/craco": "^6.4.3",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -14,6 +17,8 @@
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
     "@types/styled-components": "^5.1.25",
+    "antd": "^4.20.4",
+    "craco-less": "^2.0.0",
     "jira-dev-tool": "^1.7.61",
     "json-server": "^0.17.0",
     "qs": "^6.10.3",
@@ -25,12 +30,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "json-server": "json-server  __json_server_mock__/db.json --watch --port 3001 --middlewares ./__json_server_mock__/middleware.js"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
