@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
+// prevent deleting the object when value is 0
+// export const isFalsy = (value: unknown) => (value === 0 ? false : !value)
 
-export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
+// check if the value is => undefined/null/empty string
+export const isVoid = (value: unknown) =>
+  value === undefined || value === null || value === "";
 
-// don't mess up original data
+// prevent from messing up original data
 // this involves generics
-export const CleanUpObject = (object: object) => {
+export const CleanUpObject = (object: { [key: string]: unknown }) => {
   const result = { ...object };
   Object.keys(result).forEach((key) => {
-    // @ts-ignore
     const value = result[key];
-    // "!value" means undefined/null/empty string
-    if (isFalsy(value)) {
-      // @ts-ignore
-      delete result[key];
-    }
+    if (isVoid(value)) delete result[key];
   });
   return result;
 };

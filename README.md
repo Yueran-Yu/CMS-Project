@@ -42,3 +42,6 @@
 11. ### The different scenarios applied between A and B
     - For Content or one-dimensional consideration using **Flex**
     - For Layout or two-dimensional consideration using **Grid**
+12. import SVG as the ReactComponent, we also need to declare a specific module for svg, visiting the file '
+    src/img-module.d.ts for more details'
+13. ErrorBoundary component must be implemented by Class Component

@@ -3,7 +3,7 @@ import qs from "qs";
 import * as auth from "auth-provider";
 import { useAuth } from "../context/auth-context";
 
-export const http = async (
+export const httpREST = async (
   endPoint: string,
   { data, token, headers, ...customConfig }: Config = {}
 ) => {
@@ -17,6 +17,7 @@ export const http = async (
     ...customConfig,
   };
 
+  // handle config
   if (config.method.toUpperCase() === "GET") {
     endPoint += `?${qs.stringify(data)}`;
   } else {
@@ -47,10 +48,10 @@ export const http = async (
 export const useHttp = () => {
   const { user } = useAuth();
   // Parameters<typeof http>  is a Utility Type
-  return (...[endpoint, config]: Parameters<typeof http>) =>
-    http(endpoint, { ...config, token: user?.token });
+  return (...[endpoint, config]: Parameters<typeof httpREST>) =>
+    httpREST(endpoint, { ...config, token: user?.token });
 };
 
 // type alias, interface can't replace this type style
 // interface can't replace Utility Type
-type FavNum = string | number;
+// type FavNum = string | number;

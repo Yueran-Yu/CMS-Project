@@ -19,22 +19,22 @@ interface SearchPanelProps {
   setParam: React.Dispatch<React.SetStateAction<ParamProps>>;
 }
 
-interface Project {
+interface ProjectProps {
   id: string;
   name: string;
   personId: string;
   pin: boolean;
   organization: string;
-}
-
-interface ListProps {
-  list: Project[];
-  users: User[];
+  created: number;
 }
 
 interface LoginRegisterProps {
   username: string;
   password: string;
+}
+
+interface ErrorProps {
+  onError: (error: Error) => void;
 }
 
 interface AuthContextProps {
@@ -47,4 +47,10 @@ interface AuthContextProps {
 interface Config extends RequestInit {
   data?: object;
   token?: string;
+}
+
+interface AsyncState<D> {
+  error: Error | null;
+  data: D | null;
+  stat: "idle" | "loading" | "error" | "success";
 }
