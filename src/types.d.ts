@@ -28,11 +28,6 @@ interface Project {
   created: number;
 }
 
-interface ListProps {
-  projects: Project[];
-  users: User[];
-}
-
 interface LoginRegisterProps {
   username: string;
   password: string;
