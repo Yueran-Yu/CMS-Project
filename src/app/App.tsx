@@ -3,12 +3,16 @@ import React from "react";
 import { useAuth } from "../context/auth-context";
 import { AuthenticatedApp } from "../authenticated-app";
 import { UnauthenticatedApp } from "../unauthenticated-app";
+import { ErrorBoundary } from "../components/error-boundary";
+import { GlobalPageErrorFallback } from "../components/lib";
 
 const App = () => {
   const { user } = useAuth();
   return (
     <AppWrapper>
-      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      <ErrorBoundary fallbackRender={GlobalPageErrorFallback}>
+        <>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</>
+      </ErrorBoundary>
     </AppWrapper>
   );
 };
