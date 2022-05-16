@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import logo from "assets/logo.svg";
 import left from "assets/left.svg";
 import right from "assets/right.svg";
+import { Helmet } from "react-helmet";
 
 export const UnauthenticatedApp = () => {
   const [registerPage, setRegisterPage] = useState(false);
@@ -14,6 +15,9 @@ export const UnauthenticatedApp = () => {
   console.log(error);
   return (
     <Container>
+      <Helmet>
+        <title>Please Login / Register</title>
+      </Helmet>
       <Header />
       <Background />
       <ShadowCard>

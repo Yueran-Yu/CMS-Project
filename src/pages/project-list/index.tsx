@@ -5,6 +5,7 @@ import { useDebounce } from "../../utils";
 import styled from "@emotion/styled";
 import { Typography } from "antd";
 import { useGeneral } from "../../utils/use-general";
+import { Helmet } from "react-helmet";
 
 export const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -19,6 +20,9 @@ export const ProjectListPage = () => {
   const { data: users } = useGeneral<UserProps>("users");
   return (
     <Container>
+      <Helmet>
+        <title>Projects List</title>
+      </Helmet>
       <h1>项目列表</h1>
       <SearchPanel users={users || []} param={param} setParam={setParam} />
       {error && (
