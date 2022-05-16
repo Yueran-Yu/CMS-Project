@@ -1,13 +1,9 @@
-import React, {
-  createContext,
-  FC,
-  ReactNode,
-  useContext,
-  useState,
-} from "react";
+import React, { createContext, FC, ReactNode, useContext } from "react";
 import * as auth from "auth-provider";
 import { httpREST } from "../utils/use-http";
 import { useMount } from "../utils";
+import { useAsync } from "../utils/use-async";
+import { GlobalPageErrorFallback, GlobalPageLoading } from "components/lib";
 
 const bootStrapUser = async () => {
   let user = null;
@@ -24,14 +20,27 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
 
 export const AuthProvider: FC<ReactNode> = ({ children }) => {
-  const [user, setUser] = useState<UserProps | null>(null);
+  // const [user, setUser] = useState<UserProps | null>(null);
+  const {
+    data: user,
+    error,
+    isLoading,
+    isIdle,
+    isError,
+    run,
+    setData: setUser,
+  } = useAsync<UserProps | null>();
   // point free style
   const login = (form: LoginRegisterProps) => auth.login(form).then(setUser);
   const register = (form: LoginRegisterProps) =>
     auth.register(form).then(setUser);
   const logout = () => auth.logout().then(() => setUser(null));
 
-  useMount(() => bootStrapUser().then(setUser));
+  useMount(() => run(bootStrapUser()));
+
+  if (isIdle || isLoading) return <GlobalPageLoading />;
+
+  if (isError) return <GlobalPageErrorFallback error={error} />;
 
   return (
     <AuthContext.Provider value={{ user, login, register, logout }}>

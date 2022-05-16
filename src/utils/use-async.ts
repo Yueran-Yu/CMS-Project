@@ -9,14 +9,14 @@ const defaultInitialState: AsyncState<null> = {
 const defaultConfig = {
   throwOnError: false,
 };
-export const useAsync = <D>(
-  _initialState?: AsyncState<D>,
+export const useAsync = <T>(
+  _initialState?: AsyncState<T>,
   initialConfig?: typeof defaultConfig
 ) => {
   const config = { ...defaultConfig, ...initialConfig };
-  const [state, setState] = useState<AsyncState<D>>({ ...defaultInitialState });
+  const [state, setState] = useState<AsyncState<T>>({ ...defaultInitialState });
 
-  const setData = (data: D) =>
+  const setData = (data: T) =>
     setState({
       data,
       stat: "success",
@@ -31,7 +31,7 @@ export const useAsync = <D>(
     });
 
   // run用来触发异步请求
-  const run = (promise: Promise<D>) => {
+  const run = (promise: Promise<T>) => {
     if (!promise || !promise.then) throw new Error("请传入Promise类型数据");
 
     setState({ ...state, stat: "loading" });
