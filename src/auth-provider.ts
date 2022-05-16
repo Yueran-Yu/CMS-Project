@@ -22,7 +22,7 @@ export const login = async (data: LoginRegisterProps) => {
     return handleUserResponse(await response.json());
   } else {
     // equals throw a new error
-    return Promise.reject(data);
+    return Promise.reject(await response.json());
   }
 };
 
@@ -38,7 +38,7 @@ export const register = async (data: LoginRegisterProps) => {
   if (response.ok) {
     return handleUserResponse(await response.json());
   } else {
-    return Promise.reject(data);
+    return Promise.reject(await response.json());
   }
 };
 

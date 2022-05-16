@@ -3,11 +3,15 @@ import { useAuth } from "../context/auth-context";
 import { Form, Input } from "antd";
 import { LongButton } from "unauthenticated-app";
 
-export const LoginPage = () => {
+export const LoginPage = ({ onError }: ErrorProps) => {
   const { login } = useAuth();
 
-  const handleSubmit = (values: LoginRegisterProps) => {
-    login(values);
+  const handleSubmit = async (values: LoginRegisterProps) => {
+    try {
+      await login(values);
+    } catch (e) {
+      onError(e as Error);
+    }
   };
 
   return (

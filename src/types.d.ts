@@ -33,6 +33,10 @@ interface LoginRegisterProps {
   password: string;
 }
 
+interface ErrorProps {
+  onError: (error: Error) => void;
+}
+
 interface AuthContextProps {
   user: UserProps | null;
   login: (form: LoginRegisterProps) => Promise<void>;
