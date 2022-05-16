@@ -6,14 +6,14 @@ import React, {
   useState,
 } from "react";
 import * as auth from "auth-provider";
-import { http } from "../utils/http";
+import { httpREST } from "../utils/use-http";
 import { useMount } from "../utils";
 
 const bootStrapUser = async () => {
   let user = null;
   const token = auth.getToken();
   if (token) {
-    const data = await http("me", { token });
+    const data = await httpREST("me", { token });
     //  不懂  data 里为啥 有 user  属性的，不明白
     user = data.user;
   }

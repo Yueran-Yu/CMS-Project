@@ -3,7 +3,7 @@ import { Table } from "antd";
 import { TableProps } from "antd/es/table";
 import dayjs from "dayjs";
 
-export interface ListProps extends TableProps<Project> {
+export interface ListProps extends TableProps<ProjectProps> {
   users: UserProps[];
 }
 
