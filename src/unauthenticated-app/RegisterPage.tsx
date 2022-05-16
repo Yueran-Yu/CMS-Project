@@ -6,7 +6,15 @@ import { LongButton } from "unauthenticated-app";
 export const RegisterPage = ({ onError }: ErrorProps) => {
   const { register } = useAuth();
 
-  const handleSubmit = async (values: LoginRegisterProps) => {
+  interface ConfirmProps extends LoginRegisterProps {
+    cpassword: string;
+  }
+
+  const handleSubmit = async ({ cpassword, ...values }: ConfirmProps) => {
+    if (cpassword !== values.password) {
+      onError(new Error("请确认两次输入的密码相同"));
+      return;
+    }
     try {
       await register(values);
     } catch (e) {
@@ -24,9 +32,15 @@ export const RegisterPage = ({ onError }: ErrorProps) => {
       </Form.Item>
       <Form.Item
         name={"password"}
-        rules={[{ required: true, message: "请输入密码." }]}
+        rules={[{ required: true, message: "请输入密码" }]}
       >
         <Input placeholder={"密码"} type="text" id={"password"} />
+      </Form.Item>
+      <Form.Item
+        name={"cpassword"}
+        rules={[{ required: true, message: "请确认密码" }]}
+      >
+        <Input placeholder={"确认密码"} type="text" id={"cpassword"} />
       </Form.Item>
       <Form.Item>
         {/*type means the style of antd*/}
