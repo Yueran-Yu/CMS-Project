@@ -10,6 +10,8 @@ import right from "assets/right.svg";
 export const UnauthenticatedApp = () => {
   const [registerPage, setRegisterPage] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  console.log("error");
+  console.log(error);
   return (
     <Container>
       <Header />

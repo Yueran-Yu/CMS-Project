@@ -2,13 +2,14 @@ import React from "react";
 import { useAuth } from "../context/auth-context";
 import { Form, Input } from "antd";
 import { LongButton } from "unauthenticated-app";
+import { useAsync } from "../utils/use-async";
 
 export const LoginPage = ({ onError }: ErrorProps) => {
   const { login } = useAuth();
-
+  const { run, isLoading } = useAsync(undefined, { throwOnError: true });
   const handleSubmit = async (values: LoginRegisterProps) => {
     try {
-      await login(values);
+      await run(login(values));
     } catch (e) {
       onError(e as Error);
     }
@@ -30,7 +31,7 @@ export const LoginPage = ({ onError }: ErrorProps) => {
       </Form.Item>
       <Form.Item>
         {/*type means the style of antd*/}
-        <LongButton htmlType={"submit"} type={"primary"}>
+        <LongButton loading={isLoading} htmlType={"submit"} type={"primary"}>
           登录
         </LongButton>
       </Form.Item>

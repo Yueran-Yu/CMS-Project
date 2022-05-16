@@ -2,13 +2,15 @@ import React from "react";
 import { useAuth } from "../context/auth-context";
 import { Form, Input } from "antd";
 import { LongButton } from "unauthenticated-app";
+import { useAsync } from "../utils/use-async";
+
+interface ConfirmProps extends LoginRegisterProps {
+  cpassword: string;
+}
 
 export const RegisterPage = ({ onError }: ErrorProps) => {
   const { register } = useAuth();
-
-  interface ConfirmProps extends LoginRegisterProps {
-    cpassword: string;
-  }
+  const { run, isLoading } = useAsync(undefined, { throwOnError: true });
 
   const handleSubmit = async ({ cpassword, ...values }: ConfirmProps) => {
     if (cpassword !== values.password) {
@@ -16,7 +18,7 @@ export const RegisterPage = ({ onError }: ErrorProps) => {
       return;
     }
     try {
-      await register(values);
+      await run(register(values));
     } catch (e) {
       onError(e as Error);
     }
@@ -44,7 +46,7 @@ export const RegisterPage = ({ onError }: ErrorProps) => {
       </Form.Item>
       <Form.Item>
         {/*type means the style of antd*/}
-        <LongButton htmlType={"submit"} type={"primary"}>
+        <LongButton loading={isLoading} htmlType={"submit"} type={"primary"}>
           注册
         </LongButton>
       </Form.Item>

@@ -5,7 +5,15 @@ const defaultInitialState: AsyncState<null> = {
   data: null,
   error: null,
 };
-export const useAsync = <D>(initialState?: AsyncState<D>) => {
+
+const defaultConfig = {
+  throwOnError: false,
+};
+export const useAsync = <D>(
+  _initialState?: AsyncState<D>,
+  initialConfig?: typeof defaultConfig
+) => {
+  const config = { ...defaultConfig, ...initialConfig };
   const [state, setState] = useState<AsyncState<D>>({ ...defaultInitialState });
 
   const setData = (data: D) =>
@@ -27,15 +35,18 @@ export const useAsync = <D>(initialState?: AsyncState<D>) => {
     if (!promise || !promise.then) throw new Error("请传入Promise类型数据");
 
     setState({ ...state, stat: "loading" });
-    return promise
-      .then((data) => {
-        setData(data);
-        return data;
-      })
-      .catch((error) => {
-        setError(error);
-        return error;
-      });
+    return (
+      promise
+        .then((data) => {
+          setData(data);
+          return data;
+        })
+        // catch 会消化异常，如果不主动抛出，外面是接受不到异常的
+        .catch((error) => {
+          setError(error);
+          return config.throwOnError ? Promise.reject(error) : error;
+        })
+    );
   };
 
   return {
