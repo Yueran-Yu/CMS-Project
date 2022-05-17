@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // prevent deleting the object when value is 0
 // export const isFalsy = (value: unknown) => (value === 0 ? false : !value)
 
@@ -37,7 +37,7 @@ export const useDocumentTitle = (
   title: string,
   keepOnUnmount: boolean = true
 ) => {
-  const oldTitle = document.title;
+  const oldTitle = useRef(document.title).current;
 
   //mount
   useEffect(() => {
