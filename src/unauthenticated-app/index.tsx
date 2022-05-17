@@ -11,7 +11,7 @@ import { useDocumentTitle } from "../utils";
 export const UnauthenticatedApp = () => {
   const [registerPage, setRegisterPage] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  useDocumentTitle("Please Login / Register");
+  useDocumentTitle("Please Login / Register", false);
 
   return (
     <Container>
