@@ -6,18 +6,15 @@ import styled from "@emotion/styled";
 import logo from "assets/logo.svg";
 import left from "assets/left.svg";
 import right from "assets/right.svg";
-import { Helmet } from "react-helmet";
+import { useDocumentTitle } from "../utils";
 
 export const UnauthenticatedApp = () => {
   const [registerPage, setRegisterPage] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  console.log("error");
-  console.log(error);
+  useDocumentTitle("Please Login / Register");
+
   return (
     <Container>
-      <Helmet>
-        <title>Please Login / Register</title>
-      </Helmet>
       <Header />
       <Background />
       <ShadowCard>

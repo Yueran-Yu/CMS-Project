@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { Row } from "./components/lib";
 import { ReactComponent as SoftwareLogo } from "assets/software-logo.svg";
 import { Dropdown, Menu } from "antd";
-import { CapitalLetter } from "./utils/CapitalLetter";
+import { CapitalLetter } from "./utils/capital-letter";
 
 export const AuthenticatedApp = () => {
   const { logout, user } = useAuth();
