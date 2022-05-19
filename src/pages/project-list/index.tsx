@@ -10,10 +10,11 @@ import { useURLQueryParam } from "../../utils/use-urlQueryParam";
 export const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectListPage = () => {
-  const [, setParam] = useState({ name: "", personId: "" });
   // 基本类型可以放到依赖里，组件状态可以放到依赖里，非组件对象绝对不可以放到依赖里
-  const [param, setSearchParams] = useURLQueryParam(["name", "personId"]);
+  // 返回数组类型，在调用的时候可以给这俩属性重新命名
+  const [param, setParam] = useURLQueryParam(["name", "personId"]);
   const debouncedParam = useDebounce(param, 200);
+
   const {
     isLoading,
     error,
@@ -38,7 +39,7 @@ export const ProjectListPage = () => {
   );
 };
 
-ProjectListPage.whyDidYouRender = true;
+ProjectListPage.whyDidYouRender = false;
 
 const Container = styled.div`
   padding: 3.2rem;
