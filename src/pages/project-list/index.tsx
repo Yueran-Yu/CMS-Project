@@ -11,7 +11,7 @@ export const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectListPage = () => {
   const [, setParam] = useState({ name: "", personId: "" });
-  // param每次都是一个新对象，被创建出来
+  // 基本类型可以放到依赖里，组件状态可以放到依赖里，非组件对象绝对不可以放到依赖里
   const [param, setSearchParams] = useURLQueryParam(["name", "personId"]);
   const debouncedParam = useDebounce(param, 200);
   const {
