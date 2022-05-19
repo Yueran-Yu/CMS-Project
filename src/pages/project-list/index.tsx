@@ -5,11 +5,14 @@ import { useDebounce, useDocumentTitle } from "../../utils";
 import styled from "@emotion/styled";
 import { Typography } from "antd";
 import { useGeneral } from "../../utils/use-general";
+import { useURLQueryParam } from "../../utils/use-urlQueryParam";
 
 export const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectListPage = () => {
-  const [param, setParam] = useState({ name: "", personId: "" });
+  const [, setParam] = useState({ name: "", personId: "" });
+  // param每次都是一个新对象，被创建出来
+  const [param, setSearchParams] = useURLQueryParam(["name", "personId"]);
   const debouncedParam = useDebounce(param, 200);
   const {
     isLoading,
@@ -34,6 +37,8 @@ export const ProjectListPage = () => {
     </Container>
   );
 };
+
+ProjectListPage.whyDidYouRender = true;
 
 const Container = styled.div`
   padding: 3.2rem;

@@ -46,3 +46,4 @@
     src/img-module.d.ts for more details'
 13. ErrorBoundary component must be implemented by Class Component
 14. Applied React-Helmet to change the plain html page （the browser tab title）
+15. [Why did you render](https://github.com/welldone-software/why-did-you-render)
