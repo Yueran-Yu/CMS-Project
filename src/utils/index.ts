@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // prevent deleting the object when value is 0
 // export const isFalsy = (value: unknown) => (value === 0 ? false : !value)
 
@@ -32,6 +32,29 @@ export const useDebounce = <T>(value: T, delay?: number) => {
   }, [value, delay]);
   return debouncedValue;
 };
+
+export const useDocumentTitle = (
+  title: string,
+  keepOnUnmount: boolean = true
+) => {
+  const oldTitle = useRef(document.title).current;
+
+  //mount
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  //unmount
+  useEffect(() => {
+    return () => {
+      if (!keepOnUnmount) {
+        document.title = oldTitle;
+      }
+    };
+  });
+};
+
+export const resetRoute = () => (window.location.href = window.location.origin);
 
 // const debounce = (func, delay) => {
 //   let timeout

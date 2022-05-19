@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SearchPanel } from "./search-panel";
 import { List } from "./list";
-import { useDebounce } from "../../utils";
+import { useDebounce, useDocumentTitle } from "../../utils";
 import styled from "@emotion/styled";
 import { Typography } from "antd";
 import { useGeneral } from "../../utils/use-general";
@@ -17,6 +17,8 @@ export const ProjectListPage = () => {
     data: projects,
   } = useGeneral<ProjectProps>("projects", debouncedParam);
   const { data: users } = useGeneral<UserProps>("users");
+  useDocumentTitle("Projects List", false);
+
   return (
     <Container>
       <h1>项目列表</h1>

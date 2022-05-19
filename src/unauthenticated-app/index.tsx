@@ -6,12 +6,13 @@ import styled from "@emotion/styled";
 import logo from "assets/logo.svg";
 import left from "assets/left.svg";
 import right from "assets/right.svg";
+import { useDocumentTitle } from "../utils";
 
 export const UnauthenticatedApp = () => {
   const [registerPage, setRegisterPage] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  console.log("error");
-  console.log(error);
+  useDocumentTitle("Please Login / Register", false);
+
   return (
     <Container>
       <Header />
