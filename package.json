@@ -65,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@welldone-software/why-did-you-render": "^7.0.1",
     "eslint": "7.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.0",
