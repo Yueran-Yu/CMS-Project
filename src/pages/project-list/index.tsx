@@ -17,7 +17,6 @@ export const ProjectListPage = () => {
     data: projects,
   } = useGeneral<ProjectProps>("projects", debouncedParam);
   const { data: users } = useGeneral<UserProps>("users");
-
   useDocumentTitle("Projects List", false);
 
   return (

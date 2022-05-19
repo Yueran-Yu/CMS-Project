@@ -5,13 +5,16 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Row } from "../components/lib";
 import { useAuth } from "../context/auth-context";
+import { resetRoute } from "../utils";
 
 export const NavHeader = () => {
   const { logout, user } = useAuth();
   return (
     <Header between={true}>
       <HeaderLeft gap={true}>
-        <SoftwareLogo width={"18rem"} color={"rgb(81, 191, 201)"} />
+        <Button type={"link"} onClick={resetRoute}>
+          <SoftwareLogo width={"18rem"} color={"rgb(81, 191, 201)"} />
+        </Button>
         <HeaderItem>项目</HeaderItem>
         <HeaderItem>用户</HeaderItem>
       </HeaderLeft>

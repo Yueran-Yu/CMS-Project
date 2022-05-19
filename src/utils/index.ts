@@ -54,6 +54,8 @@ export const useDocumentTitle = (
   });
 };
 
+export const resetRoute = () => (window.location.href = window.location.origin);
+
 // const debounce = (func, delay) => {
 //   let timeout
 //   return (...param) => {
