@@ -16,7 +16,7 @@ interface ParamProps {
 interface SearchPanelProps {
   users: UserProps[];
   param: ParamProps;
-  setParam: React.Dispatch<React.SetStateAction<ParamProps>>;
+  setParam: (param: ParamProps) => void;
 }
 
 // TODO 把所有ID都改成number类型
