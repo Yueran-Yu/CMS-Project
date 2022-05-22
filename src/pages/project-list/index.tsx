@@ -5,14 +5,14 @@ import { useDebounce, useDocumentTitle } from "../../utils";
 import styled from "@emotion/styled";
 import { Typography } from "antd";
 import { useGeneral } from "../../utils/use-general";
-import { useURLQueryParam } from "../../utils/use-urlQueryParam";
+import { useProjectsSearchParams } from "../../utils/use-projectsSearchParams";
 
 export const apiUrl = process.env.REACT_APP_API_URL;
 
+// 基本类型可以放到依赖里，组件状态可以放到依赖里，非组件对象绝对不可以放到依赖里
 export const ProjectListPage = () => {
-  // 基本类型可以放到依赖里，组件状态可以放到依赖里，非组件对象绝对不可以放到依赖里
-  // 返回数组类型，在调用的时候可以给这俩属性重新命名
-  const [param, setParam] = useURLQueryParam(["name", "personId"]);
+  useDocumentTitle("Projects List", false);
+  const [param, setParam] = useProjectsSearchParams();
   const debouncedParam = useDebounce(param, 200);
 
   const {
@@ -21,7 +21,6 @@ export const ProjectListPage = () => {
     data: projects,
   } = useGeneral<ProjectProps>("projects", debouncedParam);
   const { data: users } = useGeneral<UserProps>("users");
-  useDocumentTitle("Projects List", false);
 
   return (
     <Container>
@@ -39,7 +38,7 @@ export const ProjectListPage = () => {
   );
 };
 
-ProjectListPage.whyDidYouRender = false;
+ProjectListPage.whyDidYouRender = true;
 
 const Container = styled.div`
   padding: 3.2rem;

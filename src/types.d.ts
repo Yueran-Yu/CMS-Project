@@ -1,5 +1,5 @@
 interface UserProps {
-  id: string;
+  id: number;
   name: string;
   email: string;
   title: string;
@@ -8,22 +8,17 @@ interface UserProps {
   token: string;
 }
 
-interface ParamProps {
-  name: string;
-  personId: string;
-}
-
 interface SearchPanelProps {
   users: UserProps[];
-  param: ParamProps;
-  setParam: (param: ParamProps) => void;
+  param: Partial<Pick<ProjectProps, "name" | "personId">>;
+  setParam: (param: SearchPanelProps["param"]) => void;
 }
 
 // TODO 把所有ID都改成number类型
 interface ProjectProps {
-  id: string;
+  id: number;
   name: string;
-  personId: string;
+  personId: number;
   pin: boolean;
   organization: string;
   created: number;
