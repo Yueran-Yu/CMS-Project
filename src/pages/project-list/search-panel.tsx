@@ -1,11 +1,8 @@
-import { Form, Input, Select } from "antd";
+import { Form, Input } from "antd";
 import React, { ChangeEvent, FC } from "react";
+import { UserSelect } from "../../components/user-select";
 
-export const SearchPanel: FC<SearchPanelProps> = ({
-  users,
-  param,
-  setParam,
-}) => {
+export const SearchPanel: FC<SearchPanelProps> = ({ param, setParam }) => {
   const handleOnChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -27,17 +24,11 @@ export const SearchPanel: FC<SearchPanelProps> = ({
         />
       </Form.Item>
       <Form.Item>
-        <Select
+        <UserSelect
           value={param.personId}
+          defaultOptionName="负责人"
           onChange={(value) => setParam({ ...param, personId: value })}
-        >
-          <Select.Option value={""}>负责人</Select.Option>
-          {users.map((user) => (
-            <Select.Option key={user.id} value={String(user.id)}>
-              {user.name}
-            </Select.Option>
-          ))}
-        </Select>
+        />
       </Form.Item>
     </Form>
   );

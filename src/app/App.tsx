@@ -1,5 +1,6 @@
 import { AppWrapper } from "app/App.styles";
 import React from "react";
+import "antd/dist/antd.min.css";
 import { useAuth } from "../context/auth-context";
 import { AuthenticatedApp } from "../authenticated-app/authenticated-app";
 import { UnauthenticatedApp } from "../unauthenticated-app";

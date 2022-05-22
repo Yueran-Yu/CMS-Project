@@ -4,16 +4,31 @@ import { TableProps } from "antd/es/table";
 import dayjs from "dayjs";
 // the relationship between react-router and react-router-dom, seems like react and react-dom or react-native-dom
 import { Link } from "react-router-dom";
+import { Pin } from "components/pin";
+import { useEditProject } from "../../utils/use-projects";
 
 export interface ListProps extends TableProps<ProjectProps> {
   users: UserProps[];
 }
 
 export const List: FC<ListProps> = ({ users, ...props }) => {
+  const { mutate } = useEditProject();
+  const pinProject = (id: number, pin: boolean) => mutate({ id, pin });
   return (
     <Table
       pagination={false}
       columns={[
+        {
+          title: <Pin checked={true} disabled={true} />,
+          render(value, project) {
+            return (
+              <Pin
+                checked={project.pin}
+                onCheckedChange={(pin) => pinProject(project.id, pin)}
+              />
+            );
+          },
+        },
         {
           title: "名称",
           sorter: (a, b) => a.name.localeCompare(b.name),
