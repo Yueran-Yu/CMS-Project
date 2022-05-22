@@ -1,12 +1,8 @@
-import { Form, Input, Select } from "antd";
+import { Form, Input } from "antd";
 import React, { ChangeEvent, FC } from "react";
 import { UserSelect } from "../../components/user-select";
 
-export const SearchPanel: FC<SearchPanelProps> = ({
-  users,
-  param,
-  setParam,
-}) => {
+export const SearchPanel: FC<SearchPanelProps> = ({ param, setParam }) => {
   const handleOnChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
